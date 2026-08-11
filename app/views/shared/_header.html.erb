@@ -18,8 +18,14 @@
       </nav>
 
       <!-- PC用右側ボタン（画面幅 md 以上で表示） -->
+
+
       <div class="hidden md:flex items-center space-x-4">
+        <% if logged_in? %>
+          <%= button_to "ログアウト", logout_path, method: :delete, class: "text-gray-600 hover:text-gray-900 font-medium px-3 py-2 transition" %>
+        <% else %>
         <%= link_to "ログイン",login_path, class: "text-gray-600 hover:text-gray-900 font-medium px-3 py-2 transition" %>
+        <% end %>
         <%= link_to "新規登録",new_user_path, class: "bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition shadow-sm" %>
       </div>
 
@@ -40,7 +46,11 @@
     <%= link_to "レビュー一覧", "#", class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" %>
     <%= link_to "レビュー投稿", "#", class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" %>
     <div class="pt-2 border-t border-gray-200 flex flex-col space-y-2">
-      <%= link_to "ログイン", login_path, class: "block text-center px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" %>
+     <% if logged_in? %>
+        <%= button_to "ログアウト", logout_path, method: :delete, class: "text-gray-600 hover:text-gray-900 font-medium px-3 py-2 transition" %>
+        <% else %>
+        <%= link_to "ログイン",login_path, class: "text-gray-600 hover:text-gray-900 font-medium px-3 py-2 transition" %>
+     <% end %>
       <%= link_to "新規登録", new_user_path, class: "block text-center bg-blue-600 text-white px-3 py-2 rounded-md text-base font-medium" %>
     </div>
   </div>
