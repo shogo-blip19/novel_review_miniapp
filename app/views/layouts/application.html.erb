@@ -20,6 +20,20 @@
 
   <body>
     <%= render 'shared/header' %>
+    <%# --- フラッシュメッセージ表示エリア --- %>
+    <div class="container mx-auto px-4 mt-20">
+      <% flash.each do |message_type, message| %>
+        <%# メッセージの種類（notice/alert）によって色を分岐 %>
+        <% bg_color = message_type == 'notice' ? 'bg-emerald-50 text-emerald-800 border-emerald-300' : 'bg-rose-50 text-rose-800 border-rose-300' %>
+        
+        <div class="p-4 mb-4 text-sm rounded-lg border <%= bg_color %> flex items-center justify-between shadow-sm" role="alert">
+          <div class="flex items-center">
+            <span class="font-medium"><%= message %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%# ------------------------------------ %>
     <main class="container mx-auto mt-28 px-5 ">
      
       <%= yield %>

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         if @user.save
             redirect_to root_path, notice: "ユーザー登録が完了しました。"
         else
+            flash.now[:alert] = "ユーザー登録に失敗しました。入力内容を確認してください。"
             render :new, status: :unprocessable_entity
         end
     end
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
-    
+
 
 
 end
