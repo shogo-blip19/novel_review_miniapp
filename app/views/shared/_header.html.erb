@@ -4,7 +4,7 @@
       
       <!-- ロゴ領域 -->
       <div class="flex-shrink-0 flex items-center">
-        <%= link_to "#", class: "text-xl font-bold text-gray-900 flex items-center gap-2" do %>
+        <%= link_to root_path, class: "text-xl font-bold text-gray-900 flex items-center gap-2" do %>
           <!-- アイコン（SVG）またはロゴ画像 -->
           <span class="bg-blue-600 text-white p-1.5 rounded-lg text-sm">App</span>
           <span>小説を探そう</span>
@@ -20,7 +20,7 @@
       <!-- PC用右側ボタン（画面幅 md 以上で表示） -->
       <div class="hidden md:flex items-center space-x-4">
         <%= link_to "ログイン", "#", class: "text-gray-600 hover:text-gray-900 font-medium px-3 py-2 transition" %>
-        <%= link_to "新規登録", "#", class: "bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition shadow-sm" %>
+        <%= link_to "新規登録",new_user_path, class: "bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition shadow-sm" %>
       </div>
 
       <!-- スマホ用ハンバーガーボタン（画面幅 md 未満で表示） -->
