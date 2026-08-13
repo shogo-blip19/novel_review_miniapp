@@ -9,6 +9,25 @@
         <%= f.label :title, "タイトル" , class: "block text-sm font-medium text-slate-700" %>
         <%= f.text_field :title , placeholder: "タイトルを入力してください",class: "block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"%>
         </div>
+        <div>
+        <%= f.label :genre, "ジャンル" , class: "block text-sm font-medium text-slate-700" %>
+        <%= f.select :genre, options_for_select(['恋愛', 'ミステリー', 'ファンタジー', 'SF', 'ホラー', '歴史', 'エッセイ', '詩', 'その他']), { prompt: "ジャンルを選択してください" }, class: "block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
+        </div>
+        <div>
+        <%= f.label :author, "著者" , class: "block text-sm font-medium text-slate-700" %>
+        <%= f.text_field :author , placeholder: "著者を入力してください",class: "block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"%>
+        </div>
+        <div>
+        <%= f.label :comment, "コメント" , class: "block text-sm font-medium text-slate-700" %>
+        <%= f.text_field :comment , placeholder: "コメントを入力してください",class: "block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"%>
+        </div>
+        <div>
+        <%= f.label :impression, "感想" , class: "block text-sm font-medium text-slate-700" %>
+        <%= f.text_area :impression , placeholder: "感想を入力してください",class: "block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"%>
+        </div>
+        <div class="pt-2">
+        <%= f.submit "投稿する", class: "bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 shadow-md hover:shadow-lg" %>
+        </div>  
     <% end %>
 
     </div>
