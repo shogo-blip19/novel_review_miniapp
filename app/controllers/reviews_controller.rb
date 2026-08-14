@@ -6,9 +6,9 @@ before_action :require_login, only: [:new, :create]
   end
 
   def index
-    @reviews = Review.all
+    @reviews = Review.includes(:user)
   end
-  
+
 
   def create
    @review = current_user.reviews.build(review_params)
