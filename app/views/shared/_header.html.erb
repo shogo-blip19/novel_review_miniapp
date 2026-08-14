@@ -22,11 +22,12 @@
 
       <div class="hidden md:flex items-center space-x-4">
         <% if logged_in? %>
-          <%= button_to "ログアウト", logout_path, method: :delete, class: "text-gray-600 hover:text-gray-900 font-medium px-3 py-2 transition" %>
+          <%= button_to "ログアウト", logout_path, method: :delete, class: "px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-md transition-colors cursor-pointer" %>
         <% else %>
         <%= link_to "ログイン",login_path, class: "text-gray-600 hover:text-gray-900 font-medium px-3 py-2 transition" %>
+         <%= link_to "新規登録",new_user_path, class: "bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition shadow-sm" %>
         <% end %>
-        <%= link_to "新規登録",new_user_path, class: "bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition shadow-sm" %>
+       
       </div>
 
       <!-- スマホ用ハンバーガーボタン（画面幅 md 未満で表示） -->
@@ -42,16 +43,17 @@
   </div>
 
   <!-- スマホ用アコーディオンメニュー（初期状態は hidden で非表示） -->
-  <div class="hidden md:hidden border-t border-gray-200 bg-gray-50 px-4 pt-2 pb-4 space-y-1" id="mobile-menu">
+  <div class="hidden md:hidden text-center border-t border-gray-200 bg-gray-50 px-4 pt-2 pb-4 space-y-1" id="mobile-menu">
     <%= link_to "レビュー一覧", reviews_path, class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" %>
     <%= link_to "レビュー投稿", new_review_path, class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100" %>
     <div class="pt-2 border-t border-gray-200 flex flex-col space-y-2">
      <% if logged_in? %>
-        <%= button_to "ログアウト", logout_path, method: :delete, class: "text-gray-600 hover:text-gray-900 font-medium px-3 py-2 transition" %>
-        <% else %>
+        <%= button_to "ログアウト", logout_path, method: :delete, class: "px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-md transition-colors cursor-pointer" %>
+      <% else %>
         <%= link_to "ログイン",login_path, class: "text-gray-600 hover:text-gray-900 font-medium px-3 py-2 transition" %>
-     <% end %>
+  
       <%= link_to "新規登録", new_user_path, class: "block text-center bg-blue-600 text-white px-3 py-2 rounded-md text-base font-medium" %>
-    </div>
+       <% end %>
+       </div>
   </div>
 </header>
