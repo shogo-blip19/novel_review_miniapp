@@ -5,6 +5,11 @@ before_action :require_login, only: [:new, :create]
     @review = Review.new
   end
 
+  def index
+    @reviews = Review.all
+  end
+  
+
   def create
    @review = current_user.reviews.build(review_params)
     if @review.save
@@ -17,7 +22,7 @@ before_action :require_login, only: [:new, :create]
   end
  
   private
-  
+
   def review_params
     params.require(:review).permit(:title, :genre, :author, :comment, :impression)
   end
