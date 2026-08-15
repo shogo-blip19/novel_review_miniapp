@@ -1,10 +1,4 @@
-<div class="min-h-screen bg-slate-50 flex flex-col  py-12 px-4 sm:px-6 lg:px-8">
-    <div class="mx-auto w-full max-w-2xl">
-    <h2 class="text-center text-3xl font-extrabold text-slate-900">
-      小説のレビューを<br>投稿してみよう！！
-    </h2>
-
-    <%= form_with model: @review, local: true do |f| %>
+ <%= form_with model: @review, local: true do |f| %>
         <div>
         <%= f.label :title, "タイトル" , class: "block text-sm font-medium text-slate-700" %>
         <%= f.text_field :title , placeholder: "タイトルを入力してください",class: "block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"%>
@@ -30,8 +24,6 @@
         </div>  
     <% end %>
 
-    </div>
-  
-</div>    
+
  
 
