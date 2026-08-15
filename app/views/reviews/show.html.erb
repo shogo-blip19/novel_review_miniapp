@@ -6,11 +6,19 @@
         <p class="text-lg mb-2"><strong>コメント:</strong> <%= @review.comment %></p>
         <p class="text-lg mb-2"><strong>感想:</strong> <%= @review.impression %></p>
         <p class="text-gray-500 text-sm mt-4">投稿者: <%= @review.user.name %></p>
-        <div class="mt-4 flex justify-between">
-            <%= link_to "編集", edit_review_path(@review), class: "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200 shadow-md hover:shadow-lg" %>
-            <%= link_to "削除", review_path(@review),  data: { turbo_method: :delete,turbo_confirm: "本当に削除しますか？" }, class: "bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-200 shadow-md hover:shadow-lg" %>
-            <%= link_to "戻る", reviews_path, class: "bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition duration-200 shadow-md hover:shadow-lg" %>
-        </div>  
+     
+  <!-- 左側：編集・削除ボタン（投稿者本人のみ表示） -->
+  <div class="mt-4 flex justify-between items-center">
+    <!-- 左側：戻るボタン（常に左側に配置） -->
+    <%= link_to "戻る", reviews_path, class: "bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition duration-200 shadow-md hover:shadow-lg" %>
+
+    <!-- 右側：編集・削除ボタン（投稿者本人のみ表示） -->
+    <div class="flex space-x-2">
+    <% if @review.user == current_user %>
+      <%= link_to "編集", edit_review_path(@review), class: "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200 shadow-md hover:shadow-lg" %>
+      <%= link_to "削除", review_path(@review), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-200 shadow-md hover:shadow-lg" %>
+    <% end %>
     </div>
+   </div>
 
 </div>
