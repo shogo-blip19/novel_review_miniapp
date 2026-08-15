@@ -1,4 +1,4 @@
-<header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+<header class="bg-slate-900 border-b border-gray-200 sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       
@@ -13,8 +13,8 @@
 
       <!-- PC用ナビゲーションリンク（画面幅 md 以上で表示） -->
       <nav class="hidden md:flex space-x-8">
-        <%= link_to "レビュー一覧", reviews_path, class: "text-gray-600 hover:text-gray-900 font-medium transition" %>
-        <%= link_to "レビュー投稿", new_review_path, class: "text-gray-600 hover:text-gray-900 font-medium transition" %>
+        <%= link_to "レビュー一覧", reviews_path, class: "text-slate-300 hover:text-gray-900 font-medium transition" %>
+        <%= link_to "レビュー投稿", new_review_path, class: "text-slate-300 hover:text-gray-900 font-medium transition" %>
       </nav>
 
       <!-- PC用右側ボタン（画面幅 md 以上で表示） -->
@@ -22,9 +22,9 @@
 
       <div class="hidden md:flex items-center space-x-4">
         <% if logged_in? %>
-          <%= button_to "ログアウト", logout_path, method: :delete, class: "px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-md transition-colors cursor-pointer" %>
+          <%= button_to "ログアウト", logout_path, method: :delete, class: "px-3 py-2 text-sm font-medium text-white hover:text-slate-900 hover:bg-slate-700 rounded-md transition-colors cursor-pointer" %>
         <% else %>
-        <%= link_to "ログイン",login_path, class: "text-gray-600 hover:text-gray-900 font-medium px-3 py-2 transition" %>
+        <%= link_to "ログイン",login_path, class: "text-slate-300 hover:text-gray-900 font-medium px-3 py-2 transition" %>
          <%= link_to "新規登録",new_user_path, class: "bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition shadow-sm" %>
         <% end %>
        

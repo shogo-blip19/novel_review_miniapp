@@ -1,5 +1,5 @@
 <% @reviews.each do |review| %>
-    <div class ="bg-white shadow-md rounded-lg p-6 mb-4 border border-slate-200">
+    <div class ="bg-slate-50 shadow-md rounded-lg p-6 mb-4 border border-slate-200">
 
        
         <%= link_to "#{review.title} / #{review.author}", review_path(review), class: "text-xl text-blue-600 hover:text-blue-800 transition" %>
