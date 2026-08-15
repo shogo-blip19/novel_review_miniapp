@@ -9,6 +9,10 @@ before_action :require_login, only: [:new, :create]
     @reviews = Review.includes(:user)
   end
 
+  def show
+    @review = Review.find(params[:id])
+  end
+  
 
   def create
    @review = current_user.reviews.build(review_params)
