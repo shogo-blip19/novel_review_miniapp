@@ -1,7 +1,11 @@
 <% content_for :title, "レビュー一覧" %>
 <h2 class="text-xl font-bold mb-4 text-center">ジャンルで絞り込み</h2>
+
 <%# ジャンルごとのレビュー一覧を表示するためのジャンル切り替えボタン %>
-<div class="flex mb-4 space-x-2 justify-center">
+<%# ここから先を非同期処理にするため、turbo_frame_tagで囲む %>
+<%= turbo_frame_tag "reviews_list" do %>
+
+    <div class="flex mb-4 space-x-2 justify-center">
 
     <div class="flex flex-col  mb-4 space-y-2">
         <%= link_to "ALL", reviews_path, class: "px-4 py-2 rounded-lg #{params[:genre].blank? ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}" %> 
@@ -18,21 +22,20 @@
         <%= link_to "参考書", reviews_path(genre: '参考書'), class:"px-4 py-2 rounded-lg #{params[:genre] == '参考書' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}" %>
         <%= link_to "ラノベ", reviews_path(genre: 'ラノベ'), class:"px-4 py-2 rounded-lg #{params[:genre] == 'ラノベ' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}" %>
     </div>
-</div>
+    </div>
 
 
-<h1 class="text-center">レビュー一覧</h1>
+    <h1 class="text-center">レビュー一覧</h1>
 
 
 
 
-<%# ここから先を非同期処理にするため、turbo_frame_tagで囲む %>
-<%= turbo_frame_tag "reviews_list" do %>
+
     <% @reviews.each do |review| %>
         <div class ="bg-slate-50 shadow-md rounded-lg p-6 mb-4 border border-slate-200">
 
-       
-        <%= link_to "#{review.title} / #{review.author}", review_path(review), class: "text-xl text-blue-600 hover:text-blue-800 transition" %>
+
+        <%= link_to "#{review.title} / #{review.author}", review_path(review), data: { turbo_frame: "_top" }, class: "text-xl text-blue-600 hover:text-blue-800 transition" %>
         <p class="text-lg text-gray-400"><%= review.comment %></p>
 
         <div class="flex justify-between">
