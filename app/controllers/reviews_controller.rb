@@ -7,6 +7,11 @@ before_action :require_login, only: [:new, :create]
 
   def index
     @reviews = Review.includes(:user)
+
+    if params[:genre].present?
+        @reviews = @reviews.where(genre: params[:genre])
+    end
+    
   end
 
   def show

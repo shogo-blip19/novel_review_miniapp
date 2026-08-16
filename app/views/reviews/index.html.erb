@@ -1,18 +1,19 @@
 <% content_for :title, "レビュー一覧" %>
-
+<h2 class="text-xl font-bold mb-4 text-center">ジャンルで絞り込み</h2>
 <%# ジャンルごとのレビュー一覧を表示するためのジャンル切り替えボタン %>
 <div class="flex mb-4 space-x-2 justify-center">
-    <div class="flex flex-col justify-center mb-4 space-y-2">
+
+    <div class="flex flex-col  mb-4 space-y-2">
         <%= link_to "ALL", reviews_path, class: "px-4 py-2 rounded-lg #{params[:genre].blank? ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}" %> 
         <%= link_to "恋愛", reviews_path(genre: '恋愛'), class: "px-4 py-2 rounded-lg #{params[:genre] == '恋愛' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}" %>
         <%= link_to "ミステリー", reviews_path(genre: 'ミステリー'), class:"px-4 py-2 rounded-lg #{params[:genre] == 'ミステリー' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}" %>
     </div>
-    <div class="flex flex-col justify-center mb-4 space-y-2">
+    <div class="flex flex-col  mb-4 space-y-2">
         <%= link_to "泣ける", reviews_path(genre: '泣ける'), class:"px-4 py-2 rounded-lg #{params[:genre] == '泣ける' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}" %>
         <%= link_to "ファンタジー", reviews_path(genre: 'ファンタジー'), class:"px-4 py-2 rounded-lg #{params[:genre] == 'ファンタジー' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}" %>
         <%= link_to "SF", reviews_path(genre: 'SF'), class:"px-4 py-2 rounded-lg #{params[:genre] == 'SF' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}" %>
     </div>
-    <div class="flex flex-col justify-center mb-4 space-y-2">
+    <div class="flex flex-col  mb-4 space-y-2">
         <%= link_to "ホラー", reviews_path(genre: 'ホラー'), class:"px-4 py-2 rounded-lg #{params[:genre] == 'ホラー' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}" %>
         <%= link_to "参考書", reviews_path(genre: '参考書'), class:"px-4 py-2 rounded-lg #{params[:genre] == '参考書' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}" %>
         <%= link_to "ラノベ", reviews_path(genre: 'ラノベ'), class:"px-4 py-2 rounded-lg #{params[:genre] == 'ラノベ' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}" %>
